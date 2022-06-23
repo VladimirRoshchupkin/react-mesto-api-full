@@ -1,0 +1,25 @@
+.profile__avatar-cont {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.profile__avatar-cont::before {
+  content: " ";
+  background: url(../../../images/editProfile.svg) no-repeat center;
+  background-color: rgba(0,0,0,0.8);
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 2;
+  visibility: hidden;
+  position: absolute;
+}
+
+.profile__avatar-cont:hover::before {
+  visibility: visible;
+}

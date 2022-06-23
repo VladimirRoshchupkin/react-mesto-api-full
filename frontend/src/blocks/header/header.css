@@ -1,0 +1,27 @@
+.header {
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  margin: 0 200px;
+  padding: 45px 0 41px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/*3 перехода для плавности и нормального отображения текста*/
+@media screen and (max-width: 1024px) {
+  .header {
+    margin: 0 150px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    margin: 0 70px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    margin: 0;
+    padding: 28px 0 32px;
+  }
+}
