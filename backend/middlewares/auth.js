@@ -7,8 +7,6 @@ const auth = (req, _, next) => {
     const err = new UnauthorizedError('authorization required');
     return next(err);
   }
-  // пока не согласен что куки не срабатывают, т.к. в куках нет в начале токена 'Bearer'
-  // , то и замены не происходит, строка ниже только для авторизации по заголовку.
   // const token = authorization.replace('Bearer', ''); убрал, т.к. теперь только куки
   const token = authorization; // оставил для сохранения прежней структуры.
   let payload;

@@ -4,6 +4,7 @@ const { errors, celebrate, Joi } = require('celebrate');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { NotFoundError } = require('./errors/NotFoundError');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { userRouter } = require('./routes/users');
 const { cardRouter } = require('./routes/cards');
@@ -27,6 +28,12 @@ app.use(express.json());
   };
   next();
 }); */
+app.use(requestLogger); // подключаем логгер запросов
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -49,6 +56,7 @@ app.use('/cards', cardRouter);
 app.use('/', () => {
   throw new NotFoundError('Page not found');
 });
+app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());
 
 app.use((err, _req, res, next) => {
