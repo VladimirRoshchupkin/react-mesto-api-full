@@ -16,7 +16,7 @@ const auth = (req, _, next) => {
   try {
     payload = jwt.verify(token, 'secret-key'); // как в ПР15 вынесем ключ в .env сделаю его сложнее
   } catch (e) {
-    const err = new UnauthorizedError(`authorization required 2 ${token}`);
+    const err = new UnauthorizedError(`authorization required 2 ${token} 22 ${e}`);
     return next(err);
   }
   req.user = payload;
