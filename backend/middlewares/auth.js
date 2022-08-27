@@ -5,11 +5,12 @@ const auth = (req, _, next) => {
   const authorization = req.cookies.jwt; // req.headers.authorization || убираю заголовки
   // const { authorization } = req.headers;
   if (!authorization) { // || !authorization.startWith('Bearer') // с куками не нужен
-    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorization}`);
+    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorization} 111 ${req.cookies}`);
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); // убрал, т.к. теперь только куки
-  const token = authorization; // оставил для сохранения прежней структуры.
+  const token = req.headers.authorization.replace('Bearer', '');
+  // const token = authorization; // оставил для сохранения прежней структуры.
   let payload;
   try {
     payload = jwt.verify(token, 'secret-key'); // как в ПР15 вынесем ключ в .env сделаю его сложнее
