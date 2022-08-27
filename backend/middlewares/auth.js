@@ -9,8 +9,8 @@ const auth = (req, _, next) => {
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); // убрал, т.к. теперь только куки
-  const token = req.headers.authorization.replace('Bearer', '');
-  // const token = authorization; // оставил для сохранения прежней структуры.
+  // const token = req.headers.authorization.replace('Bearer', '');
+  const token = authorization; // оставил для сохранения прежней структуры.
   let payload;
   try {
     payload = jwt.verify(token, 'secret-key'); // как в ПР15 вынесем ключ в .env сделаю его сложнее
