@@ -4,7 +4,7 @@ const { UnauthorizedError } = require('../errors/UnauthorizedError');
 const auth = (req, _, next) => {
   const authorization = req.cookies.jwt; // req.headers.authorization || убираю заголовки
   if (!authorization) { // || !authorization.startWith('Bearer') // с куками не нужен
-    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorizatio}`);
+    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorization}`);
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); убрал, т.к. теперь только куки
