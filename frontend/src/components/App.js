@@ -112,7 +112,7 @@ function App() {
         }
       })
       .catch((res) => {
-        console.log('fail token check ', res); 
+        console.log('fail token check ', res, jwt); 
       });
     }
   };

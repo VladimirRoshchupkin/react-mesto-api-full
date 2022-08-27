@@ -4,7 +4,7 @@ const { UnauthorizedError } = require('../errors/UnauthorizedError');
 const auth = (req, _, next) => {
   const authorization = req.cookies.jwt; // req.headers.authorization || убираю заголовки
   if (!authorization) { // || !authorization.startWith('Bearer') // с куками не нужен
-    const err = new UnauthorizedError('authorization required');
+    const err = new UnauthorizedError(`authorization required 2 ${authorization}`);
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); убрал, т.к. теперь только куки
@@ -13,7 +13,7 @@ const auth = (req, _, next) => {
   try {
     payload = jwt.verify(token, 'secret-key'); // как в ПР15 вынесем ключ в .env сделаю его сложнее
   } catch (e) {
-    const err = new UnauthorizedError('authorization required');
+    const err = new UnauthorizedError(`authorization required 2 ${token}`);
     return next(err);
   }
   req.user = payload;
