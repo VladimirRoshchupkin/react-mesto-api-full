@@ -9,7 +9,6 @@ const auth = (req, _, next) => {
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); // убрал, т.к. теперь только куки
-  // const token = req.headers.authorization.replace('Bearer', '');
   const token = authorization; // оставил для сохранения прежней структуры.
   let payload;
   try {

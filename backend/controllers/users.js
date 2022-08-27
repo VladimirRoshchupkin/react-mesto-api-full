@@ -8,7 +8,7 @@ const { ConflictError } = require('../errors/ConflictError');
 
 const getUser = (req, res, next) => {
   const id = req.params.id || req.user._id; // и текущего и любого получим
-  console.log('getUser', req.params.id, req.user._id, id);
+  // console.log('getUser', req.params.id, req.user._id, id);
   User.findById(id)
     .then((user) => {
       if (!user) {
