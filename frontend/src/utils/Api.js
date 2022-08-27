@@ -86,7 +86,7 @@ export class Api {
 }
 
 export const api = new Api({
-  //baseUrl: "https://api.adps.students.nomoredomains.sbs/",
+  //baseUrl: "https://api.adps.students.nomoredomains.sbs",
   
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-37",
   headers: {

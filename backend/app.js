@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { NotFoundError } = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { corsRules } = require('./middlewares/cors');
 
 const { userRouter } = require('./routes/users');
 const { cardRouter } = require('./routes/cards');
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 
 const app = express();
 app.use(cookieParser());
+app.use(corsRules);
 const { PORT = 3000 } = process.env;
 app.use(helmet());
 app.use(express.json());
