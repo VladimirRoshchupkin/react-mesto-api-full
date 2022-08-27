@@ -2,10 +2,11 @@ const jwt = require('jsonwebtoken');
 const { UnauthorizedError } = require('../errors/UnauthorizedError');
 
 const auth = (req, _, next) => {
+  // console.log('auth req', req);
   const authorization = req.cookies.jwt; // req.headers.authorization || убираю заголовки
   // const { authorization } = req.headers;
   if (!authorization) { // || !authorization.startWith('Bearer') // с куками не нужен
-    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorization}`);
+    const err = new UnauthorizedError(`authorization required 1 ${authorization} 11 ${req.headers.authorization} 111 ${req}`);
     return next(err);
   }
   // const token = authorization.replace('Bearer', ''); // убрал, т.к. теперь только куки
