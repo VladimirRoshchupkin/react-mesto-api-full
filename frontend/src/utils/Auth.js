@@ -35,6 +35,7 @@ export const getContent = (token) => {
     }
   })
   .then(res => res.json())
+  .then(res => console.log('getContent then ',res))
   .catch(res => console.log('getContent catch ', res))
 }
 
