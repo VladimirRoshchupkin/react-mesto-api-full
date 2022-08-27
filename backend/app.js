@@ -17,11 +17,11 @@ const { auth } = require('./middlewares/auth');
 mongoose.connect('mongodb://localhost:27017/mestodb');
 // mongoose.connect('mongodb://localhost:27017/mestodb', { family: 4 });
 // mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { family: 4 });
-
+const { PORT = 3000 } = process.env;
 const app = express();
 app.use(cookieParser());
 app.use(corsRules);
-const { PORT = 3000 } = process.env;
+
 app.use(helmet());
 app.use(express.json());
 /* app.use((req, res, next) => { //на память
