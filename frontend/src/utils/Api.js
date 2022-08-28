@@ -5,6 +5,7 @@ export class Api {
   }
 
   get _headers() {
+    console.log('_headers', localStorage.getItem("jwt"))
     return {
       'Content-Type': 'application/json',
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
