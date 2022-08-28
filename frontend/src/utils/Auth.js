@@ -26,7 +26,7 @@ export const authorize = (email, password) => {//хочется identifier ка�
 };
 export const getContent = (token) => {
   console.log(token)
-  return fetch(`${BASE_URL}/users/me`, { //  {credentials: 'include'},
+  return fetch(`${BASE_URL}/users/me`, {credentials: 'include'},{ //  {credentials: 'include'},
     method: 'GET',
     headers: {
       //'Accept': 'application/json',
