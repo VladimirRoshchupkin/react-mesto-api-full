@@ -1,7 +1,14 @@
 export class Api {
-  constructor({ baseUrl, headers }) {
-    this._headers = headers;
+  constructor({ baseUrl }) { // , headers
+    //this._headers = headers;
     this._baseUrl = baseUrl;
+  }
+
+  get _headers() {
+    return {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    }
   }
 
   _getResponseData(res) {
