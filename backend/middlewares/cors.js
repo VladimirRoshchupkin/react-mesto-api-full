@@ -16,6 +16,8 @@ const allowedCors = [
   'http://62.84.118.128',
   'https://62.84.118.128',
   'https://api.adps.students.nomoredomains.sbs/users/me',
+  'https://api.adps.students.nomoredomains.sbs/users/me',
+  'https://api.adps.students.nomoredomains.sbs/cards',
 ];
 
 const corsRules = (req, res, next) => {
