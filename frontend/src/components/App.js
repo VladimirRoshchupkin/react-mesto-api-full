@@ -67,7 +67,9 @@ function App() {
   const handleLogin = (email, password) => {
     auth.authorize(email, password).
     then((data) => {
+      console.log('handle login data', data, data.token)
       if (!data.token) {
+        
         setRegState(false);
         setIsTooltipPopupOpen(true); // хотя указано что это окно о успешной или не очень регистрации, но для неудачной авторизации оно тоже подходит. надо же как-то проинформировать.
         return;
