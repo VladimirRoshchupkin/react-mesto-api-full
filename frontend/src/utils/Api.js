@@ -89,8 +89,8 @@ export const api = new Api({
   baseUrl: "https://api.adps.students.nomoredomains.sbs",
   
   //baseUrl: "https://mesto.nomoreparties.co/v1/cohort-37",
-  headers: {
+  //headers: {
   //  authorization: "2ac160e3-289e-41a6-a18f-46d80731db29",
-   "Content-Type": "application/json",
-  },
+  // "Content-Type": "application/json",
+  //},
 });
