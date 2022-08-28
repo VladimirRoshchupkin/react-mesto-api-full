@@ -20,11 +20,11 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 app.use(cookieParser());
 app.use(corsRules);
 app.use(helmet());
-// app.use(express.json()); //первоначальное место app.use(express.json()); // за app.use(helmet());
+app.use(express.json()); // первоначальное место app.use(express.json()); // за app.use(helmet());
 // перемещено перед куки-парсер
 /* app.use((req, res, next) => { //на память
   req.user = {
