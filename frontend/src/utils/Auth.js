@@ -14,7 +14,7 @@ export const register = (email, password) => {
 
 
 export const authorize = (email, password) => {//хочется identifier как в вебинаре, но раз в примере почта, пусть будет почта
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${BASE_URL}/signin`, {credentials: 'include'}, {
     method: 'POST',
     headers: {
       //'Accept': 'application/json',//было в вебинаре
