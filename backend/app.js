@@ -65,7 +65,7 @@ app.use(errors());
 
 app.use((err, _req, res, next) => {
   const { statusCode = 500, message } = err;
-  res.status(statusCode).send({ message: statusCode === 500 ? 'server Error' : message });
+  res.status(statusCode).send({ message: statusCode === 501 ? 'server Error' : message });
   next(); // чтобы не ругался ESLint На неиспользуемый next
 });
 app.listen(PORT, () => {});
