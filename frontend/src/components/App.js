@@ -65,8 +65,8 @@ function App() {
   }, [loggedIn]); 
 
   const handleLogin = (email, password) => {
-    auth.authorize(email, password).
-    then((data) => {
+    auth.authorize(email, password)
+    .then((data) => {
       console.log('handle login data', data, data.token)
       if (!data.token) {
         
