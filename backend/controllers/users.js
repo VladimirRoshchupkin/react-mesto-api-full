@@ -122,8 +122,8 @@ const login = (req, res, next) => {
         });
     })
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: 3600 * 24 * 7 }); // как в ПР15 вынесем ключ в .env сделаю его сложнее
-      return token;
+      const token = jwt.sign({ _id: user._id }, '123', { expiresIn: 3600 * 24 * 7 }); // как в ПР15 вынесем ключ в .env сделаю его сложнее
+      return token;// secret-key
     })
     .then((token) => {
       // res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: false }).send({ token });
