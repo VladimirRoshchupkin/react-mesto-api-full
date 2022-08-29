@@ -53,7 +53,7 @@ app.post('/signup', celebrate({
     avatar: Joi.string().pattern(/https?:\/\/(www\.)?[0-9a-z-.]*\.[a-z-.]{2,}([0-9a-z-._~:/?#[\]@!$&'()*+,;=])*#*$/i), // нет в задание создать константу
   }),
 }), createUser);
-app.use(auth);
+// app.use(auth);
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
 // app.use('/', (_, res) => res.status(404).send({ message: 'Page not found' }));
