@@ -126,7 +126,9 @@ const login = (req, res, next) => {
       return token;
     })
     .then((token) => {
-      res.cookie('jwt', token, { maxAge: 1000 * 3600 * 24 * 7, httpOnly: false }).send({ token }); // message: 'Касячный тест, куки не срабатывают без JSON-объекта'
+      // res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: false }).send({ token });
+      // message: 'Касячный тест, куки не срабатывают без JSON-объекта'
+      res.status(222).send({ token });
     })
     .catch((err) => {
       next(err);
